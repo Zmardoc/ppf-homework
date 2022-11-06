@@ -16,3 +16,14 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+.flex {
+  display: flex;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: #002c59;
+}

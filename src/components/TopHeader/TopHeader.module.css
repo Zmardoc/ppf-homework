@@ -1,0 +1,11 @@
+.topHeader {
+  background: #002c59;
+  color: white;
+}
+
+.baseContainer {
+  height: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

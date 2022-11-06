@@ -1,0 +1,10 @@
+.base {
+  background: #002c59;
+  color: white;
+  border-radius: 4px;
+}
+
+.accountInfo {
+  padding-bottom: 8px;
+  color: white;
+}
