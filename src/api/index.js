@@ -1,4 +1,4 @@
-import { accountResponse, balanceResponse, transactionResponse } from '../__mocks'
+import { accountResponse, balanceResponse, transactionResponse } from './__mocks'
 
 const timeout = (prom, time) => {
   let timer

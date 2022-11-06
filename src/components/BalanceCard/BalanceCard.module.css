@@ -1,0 +1,15 @@
+.base {
+  border-radius: 4px;
+  color: #002c59;
+  border: 2px solid #002c59;
+}
+
+.balance {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #b06f41;
+}
+
+.balanceInfo {
+  padding-bottom: 8px;
+}

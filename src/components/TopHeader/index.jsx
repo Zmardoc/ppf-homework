@@ -5,7 +5,7 @@ import styles from './TopHeader.module.css'
 const TopHeader = () => (
   <FullWidthContainer className={styles.topHeader}>
     <BaseContainer className={styles.baseContainer}>
-      <div>PPF logo</div>
+      <img src="/img/logo.svg" width="159" height="53" alt="ppf-bank-logo" className={styles.logo} />
       <div>neco jineho</div>
     </BaseContainer>
   </FullWidthContainer>

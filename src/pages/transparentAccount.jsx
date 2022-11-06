@@ -2,11 +2,19 @@ import { Typography } from '@mui/material'
 import { useEffect, useState } from 'react'
 import { fetchAccounts, fetchBalance, fetchTransactions } from '../api'
 import { AccountCard } from '../components/AccountCard'
+import { BalanceCard } from '../components/BalanceCard'
+import { TransactionList } from '../components/TransactionList'
 import styles from './TransparentAccount.module.css'
 
 const TransparentAccount = () => {
   const [account, setAccount] = useState(null)
   const [loadingAccount, setLoadingAccount] = useState(true)
+
+  const [balance, setBalance] = useState(null)
+  const [loadingBalance, setLoadingBalance] = useState(true)
+
+  const [transactions, setTransactions] = useState(null)
+  const [loadingTransactions, setLoadingTransactions] = useState(true)
 
   useEffect(() => {
     fetchAccounts()
@@ -15,8 +23,16 @@ const TransparentAccount = () => {
         setLoadingAccount(false)
       })
 
-    fetchBalance().then(response => console.log(response.data))
-    fetchTransactions().then(response => console.log(response.data))
+    fetchBalance()
+      .then(response => setBalance(response.data))
+      .finally(() => {
+        setLoadingBalance(false)
+      })
+    fetchTransactions()
+      .then(response => setTransactions(response.data))
+      .finally(() => {
+        setLoadingTransactions(false)
+      })
   }, [])
   return (
     <div>
@@ -24,8 +40,10 @@ const TransparentAccount = () => {
         Pohyby na transparentním účtu
       </Typography>
       <div className={styles.accountContainer}>
-        <AccountCard account={account} loading={loadingAccount} className={styles.accountCard} />
+        <AccountCard account={account} loading={loadingAccount} />
+        <BalanceCard balance={balance} loading={loadingBalance} />
       </div>
+      <TransactionList transactions={transactions} loading={loadingTransactions} className={styles.transactionList} />
     </div>
   )
 }

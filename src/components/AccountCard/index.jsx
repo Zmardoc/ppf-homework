@@ -13,8 +13,7 @@ const LoadingSkeleton = () => (
 const AccountInfo = ({ account }) => (
   <div>
     <Typography variant="h5" component="h2" className={styles.accountInfo}>
-      {' '}
-      Informace o účtu{' '}
+      Informace o účtu
     </Typography>
     {account ? (
       <div>
