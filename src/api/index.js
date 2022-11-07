@@ -7,12 +7,15 @@ const timeout = (prom, time) => {
   )
 }
 
-export const fetchAccounts = () => {
+export const fetchAccounts = async () => {
+  //GET '/accounts'
   return timeout(Promise.resolve({ status: 200, data: accountResponse }), 2000)
 }
-export const fetchBalance = () => {
-  return Promise.resolve({ status: 200, data: balanceResponse })
+export const fetchBalance = accountId => {
+  //GET `/accounts/${accountId}/balance`
+  return timeout(Promise.resolve({ status: 200, data: balanceResponse }), 2000)
 }
-export const fetchTransactions = () => {
-  return Promise.resolve({ status: 200, data: transactionResponse })
+export const fetchTransactions = accountId => {
+  //GET `/accounts/${accountId}/transactions`
+  return timeout(Promise.resolve({ status: 200, data: transactionResponse }), 2000)
 }

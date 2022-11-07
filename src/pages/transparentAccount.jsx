@@ -1,5 +1,6 @@
 import { Grid, Typography } from '@mui/material'
 import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 import { fetchAccounts, fetchBalance, fetchTransactions } from '../api'
 import { AccountCard } from '../components/AccountCard'
 import { BalanceCard } from '../components/BalanceCard'
@@ -16,24 +17,26 @@ const TransparentAccount = () => {
   const [transactions, setTransactions] = useState(null)
   const [loadingTransactions, setLoadingTransactions] = useState(true)
 
+  let { accountId } = useParams()
+
   useEffect(() => {
     fetchAccounts()
-      .then(response => setAccount(response.data[0]))
+      .then(response => setAccount(response.data.find(account => account.id === accountId))) //TODO redux nebo neco
       .finally(() => {
         setLoadingAccount(false)
       })
 
-    fetchBalance()
+    fetchBalance(accountId)
       .then(response => setBalance(response.data))
       .finally(() => {
         setLoadingBalance(false)
       })
-    fetchTransactions()
+    fetchTransactions(accountId)
       .then(response => setTransactions(response.data))
       .finally(() => {
         setLoadingTransactions(false)
       })
-  }, [])
+  }, [accountId])
 
   return (
     <div>
