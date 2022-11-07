@@ -11,7 +11,7 @@ import {
   TableRow,
 } from '@mui/material'
 import clsx from 'clsx'
-import { currencyFormat } from '../../utils/format'
+import { currencyFormat, dateFormat } from '../../utils/format'
 import styles from './TransactionList.module.css'
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -44,7 +44,7 @@ const TransactionList = ({ className, transactions, loading }) => (
             {transactions.map(transaction => (
               <TableRow key={transaction.transactionId} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                 <TableCell component="th" scope="row">
-                  {transaction.bookingDate}
+                  {dateFormat(transaction.bookingDate)}
                 </TableCell>
                 <TableCell>{transaction.counterPartyAccount.accountName}</TableCell>
                 <TableCell align="right">{transaction.variableSymbol}</TableCell>

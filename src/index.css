@@ -20,6 +20,9 @@ code {
 .flex {
   display: flex;
 }
+.align-stretch {
+  align-items: stretch;
+}
 
 h1,
 h2,

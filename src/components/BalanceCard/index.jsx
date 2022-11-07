@@ -1,6 +1,6 @@
 import { CardContent, Skeleton, Typography } from '@mui/material'
 import clsx from 'clsx'
-import { currencyFormat } from '../../utils/format'
+import { currencyFormat, isoDateFormat } from '../../utils/format'
 import CardInfo from '../CardInfo'
 import styles from './BalanceCard.module.css'
 
@@ -24,7 +24,7 @@ const BalanceInfo = ({ balance }) => (
     {balance ? (
       <div>
         <Balance className="" amount={balance.amount}></Balance>
-        <CardInfo label="Ke dni" value={'15.2.2001'} />
+        <CardInfo label="Ke dni" value={isoDateFormat(balance.date)} />
       </div>
     ) : (
       <div>Informace o zůstatku nejsou dostupné</div>

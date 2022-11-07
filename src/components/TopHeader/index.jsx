@@ -6,7 +6,7 @@ const TopHeader = () => (
   <FullWidthContainer className={styles.topHeader}>
     <BaseContainer className={styles.baseContainer}>
       <img src="/img/logo.svg" width="159" height="53" alt="ppf-bank-logo" className={styles.logo} />
-      <div>neco jineho</div>
+      <div>CZ</div>
     </BaseContainer>
   </FullWidthContainer>
 )

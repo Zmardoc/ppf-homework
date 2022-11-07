@@ -1,4 +1,4 @@
-import { Typography } from '@mui/material'
+import { Grid, Typography } from '@mui/material'
 import { useEffect, useState } from 'react'
 import { fetchAccounts, fetchBalance, fetchTransactions } from '../api'
 import { AccountCard } from '../components/AccountCard'
@@ -34,15 +34,20 @@ const TransparentAccount = () => {
         setLoadingTransactions(false)
       })
   }, [])
+
   return (
     <div>
       <Typography variant="h4" component="h1" className={styles.header}>
         Pohyby na transparentním účtu
       </Typography>
-      <div className={styles.accountContainer}>
-        <AccountCard account={account} loading={loadingAccount} />
-        <BalanceCard balance={balance} loading={loadingBalance} />
-      </div>
+      <Grid container spacing={2} className={styles.accountContainer} alignItems="stretch">
+        <Grid item xs={12} md={6} className="flex align-stretch">
+          <AccountCard account={account} loading={loadingAccount} className={styles.gridContent} />
+        </Grid>
+        <Grid item xs={12} md={6} className="flex align-stretch">
+          <BalanceCard balance={balance} loading={loadingBalance} className={styles.gridContent} />
+        </Grid>
+      </Grid>
       <TransactionList transactions={transactions} loading={loadingTransactions} className={styles.transactionList} />
     </div>
   )
