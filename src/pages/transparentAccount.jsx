@@ -21,7 +21,7 @@ const TransparentAccount = () => {
 
   useEffect(() => {
     fetchAccounts()
-      .then(response => setAccount(response.data.find(account => account.id === accountId))) //TODO redux nebo neco
+      .then(response => setAccount(response.data.find(account => account.id === accountId)))
       .finally(() => {
         setLoadingAccount(false)
       })

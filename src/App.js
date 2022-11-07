@@ -1,7 +1,3 @@
-import '@fontsource/roboto/300.css' //TODO dat nekam jinam
-import '@fontsource/roboto/400.css'
-import '@fontsource/roboto/500.css'
-import '@fontsource/roboto/700.css'
 import BaseContainer from './layouts/BaseContainer'
 import { TopHeader } from './components/TopHeader'
 import { TransparentAccount } from './pages/TransparentAccount'
